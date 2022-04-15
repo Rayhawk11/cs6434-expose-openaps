@@ -107,6 +107,7 @@ In such a case, please add
 if(rT.rate > 10000) 
   throw 'Rate too high'
 or something like that as appropriate because I have no idea what values are right!
+If possible make the exception message something distinguishable so it's easier to look for in expoSE output
 
 rT.rate: Basal rate in U? I think?
 rT.duration: Duration in minutes
