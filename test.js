@@ -119,17 +119,6 @@ in the OpenAPS algorithm to help if BGs rise faster or drop faster than expected
 a meal, but they don’t replace a regular meal bolus." -OpenAPS website. Since we are not worrying 
 about bolus, I am making the maximum rT.rate lower than the bolus one we had discussed. Hopefully 
 we can have a check like "are you sure?" to still give the basal*/
-try{ 
-  if(rT.rate > 3) throw "Unusually high basal rate attempted";
-  if(rT.rate < 0) throw "Attempted negative basal rate";
-  if(rT.temp < 0) throw "Attempted negative temp basal rate";  
-  if(rT.temp > 9) throw "Unusually high temp basal rate attempted";
-  if(rT.duration > 10) throw "Unusually long length of time for temp basal to run";
-  if(rT.duration < 0) throw "Attempted negative length of time for temp basal to run"; 
-}
-catch(err){
-  rT.error += " " + err;
-}
 
 console.log('Rate: %f', rT.rate);
 console.log('Duration: %f', rT.duration);
@@ -137,3 +126,10 @@ console.log('Temp: %s', rT.temp);
 console.log('Deliver at: %s', rT.deliverAt);
 console.log('Error: %s', rT.error);
 console.log('Reason: %s', rT.reason);
+
+if(rT.rate > 3) throw "Unusually high basal rate attempted";
+if(rT.rate < 0) throw "Attempted negative basal rate";
+if(rT.temp < 0) throw "Attempted negative temp basal rate";
+if(rT.temp > 9) throw "Unusually high temp basal rate attempted";
+if(rT.duration > 10) throw "Unusually long length of time for temp basal to run";
+if(rT.duration < 0) throw "Attempted negative length of time for temp basal to run";
