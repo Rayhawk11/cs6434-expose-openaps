@@ -133,7 +133,7 @@ if((typeof rT.error === "string" && !rT.error.isEmpty()) || !rT.reason.includes(
   if(rT.temp !==0 && rT.temp !== 'absolute') {
     if(rT.temp < 0) throw "Attempted negative temp basal rate";
     if(rT.temp > 9) throw "Unusually high temp basal rate attempted";
-    if(rT.duration > 10) throw "Unusually long length of time for temp basal to run";
+    //if(rT.duration > 10) throw "Unusually long length of time for temp basal to run";
     if(rT.duration < 0) throw "Attempted negative length of time for temp basal to run";
   }
 }
