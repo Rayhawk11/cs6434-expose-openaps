@@ -127,7 +127,7 @@ console.log('Deliver at: %s', rT.deliverAt);
 console.log('Error: %s', rT.error);
 console.log('Reason: %s', rT.reason);
 
-if((typeof rT.error === "string" && !rT.error.isEmpty()) || !rT.reason.includes('doing nothing')) {
+if(!(typeof rT.error === "string" && rT.error.length != 0) && !rT.reason.includes('doing nothing')) {
   if(rT.rate > 3) throw "Unusually high basal rate attempted";
   if(rT.rate < 0) throw "Attempted negative basal rate";
   if(rT.temp !==0 && rT.temp !== 'absolute') {
